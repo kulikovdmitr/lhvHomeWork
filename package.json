@@ -1,0 +1,23 @@
+{
+  "name": "lhvhomework",
+  "version": "1.0.0",
+  "description": "Tests",
+  "main": "index.js",
+  "dependencies": {
+    "cypress": "^9.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kulikovdmitr/lhvHomeWork.git"
+  },
+  "author": "Kulykov Dmytro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kulikovdmitr/lhvHomeWork/issues"
+  },
+  "homepage": "https://github.com/kulikovdmitr/lhvHomeWork#readme"
+}
