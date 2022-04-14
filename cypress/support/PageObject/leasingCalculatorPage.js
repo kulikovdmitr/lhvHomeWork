@@ -39,12 +39,12 @@ class LeasingCalculatorPage {
     }
 
     //Leasing period name="years", name ="months"
-    getLeasingPeriodMonthSelectorLocator() {
+    getLeasingPeriodYearsSelectorLocator() {
         return cy.get('div#period div:nth-child(1) > div > select')
     }
 
-    getLeasingPeriodYearsSelectorLocator() {
-        return cy.get('div#period div:nth-child(1) > div > select')
+    getLeasingPeriodMonthSelectorLocator() {
+        return cy.get('div#period div:nth-child(2) > div > select')
     }
 
     //Interest (percents) #interest_rate

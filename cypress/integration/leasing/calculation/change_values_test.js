@@ -1,16 +1,18 @@
 import LeasingCalculatorPagePage from "../../../support/PageObject/leasingCalculatorPage";
 
-describe('Clear default priceOfVehicle test', function() {
-    it('Does not do much', function() {
-        //Arrange
-        const leasingCalculatorPage = new LeasingCalculatorPagePage();
-        cy.openCalcPageAndCloseBanner();
+/**
+ * В рамках этих тестов мы производим манипуляции со значениями через интерфейс и проверяем, что значения
+ * зависимых параметров - изменились.
+ */
 
-        leasingCalculatorPage.getPriceOfVehicleLocator().should('have.value', '15 000')
-        leasingCalculatorPage.getDownpaymentEuroInputLocator().should('have.value', '1500');
-        leasingCalculatorPage.getInterestPercentsInputLocator().should('have.value', '4')
-        leasingCalculatorPage.getDownpaymentEuroInputLocator().should('have.value', '1500')
-        leasingCalculatorPage.getResidualEuroInputLocator().should('have.value', '1500')
+describe('Clear default priceOfVehicle test', function() {
+    beforeEach(() => {
+        cy.openCalcPageAndCloseBanner();
+        cy.checkDefaultValuesBeforeTest();
+    })
+
+    it('Does not do much', function() {
+        const leasingCalculatorPage = new LeasingCalculatorPagePage();
 
         //Act
         leasingCalculatorPage.getPriceOfVehicleLocator().clear()
@@ -27,31 +29,11 @@ describe('Clear default priceOfVehicle test', function() {
 })
 
 describe('Change priceOfVehicle test', function() {
-    it('Does not do much', function() {
-        //Arrange
-        const leasingCalculatorPage = new LeasingCalculatorPagePage();
+    beforeEach(() => {
         cy.openCalcPageAndCloseBanner();
-
-        //Act
-        leasingCalculatorPage.getPriceOfVehicleLocator().clear()
-        leasingCalculatorPage.getPriceOfVehicleLocator().type('2500')
-
-        //Assert
-        leasingCalculatorPage.getDownpaymentEuroInputLocator().should('have.value', '250')
-        leasingCalculatorPage.getResidualEuroInputLocator().should('have.value', '250')
-        leasingCalculatorPage.getMonthlyInstalmentAmountLocator().should('have.text','32.12')
+        cy.checkDefaultValuesBeforeTest();
     })
-})
-
-describe('Change checkBox of VAT - does not change the calculation', function() {
     it('Does not do much', function() {
-        //Arrange
-        const leasingCalculatorPage = new LeasingCalculatorPagePage();
-        cy.visit('https://www.lhv.ee/en/leasing#calculator');
-        leasingCalculatorPage.getBannerLocator().should('be.visible');
-        leasingCalculatorPage.getAcceptBannerButtonLocator().click()
-        cy.get('#pirukas').should('not.be.visible')
-
         //Act
         leasingCalculatorPage.getPriceOfVehicleLocator().clear()
         leasingCalculatorPage.getPriceOfVehicleLocator().type('2500')
@@ -62,3 +44,38 @@ describe('Change checkBox of VAT - does not change the calculation', function() 
         leasingCalculatorPage.getMonthlyInstalmentAmountLocator().should('have.text','32.12')
     })
 })
+
+describe('Change downPayment in percents - leads to change downPayment in euro test', function() {
+    beforeEach(() => {
+        cy.openCalcPageAndCloseBanner();
+        cy.checkDefaultValuesBeforeTest();
+    })
+    it('Does not do much', function() {
+        const leasingCalculatorPage = new LeasingCalculatorPagePage();
+
+        //Act
+        leasingCalculatorPage.getDownpaymentPercentInputLocator().clear()
+        leasingCalculatorPage.getDownpaymentPercentInputLocator().type('15')
+
+        //Assert
+        leasingCalculatorPage.getDownpaymentEuroInputLocator().should('have.value','2250')
+        leasingCalculatorPage.getMonthlyInstalmentAmountLocator().should('have.text','181.00')
+    })
+})
+
+// describe('Maximum period selection - hides the selection of months', function() {
+//     it('Does not do much', function() {
+//         //Arrange
+//         const leasingCalculatorPage = new LeasingCalculatorPagePage();
+//         cy.openCalcPageAndCloseBanner();
+//         cy.checkDefaultValuesBeforeTest();
+//
+//         //Act
+//         leasingCalculatorPage.getDownpaymentPercentInputLocator().clear()
+//         leasingCalculatorPage.getDownpaymentPercentInputLocator().type('15')
+//
+//         //Assert
+//         leasingCalculatorPage.getDownpaymentEuroInputLocator().should('have.value','2250')
+//         leasingCalculatorPage.getMonthlyInstalmentAmountLocator().should('have.text','181.00')
+//     })
+// })

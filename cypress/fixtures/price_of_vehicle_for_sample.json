@@ -1,0 +1,24 @@
+[
+  {
+    "price": "2800",
+    "downPaymentPercent": "20",
+    "downPaymentEuro": "560",
+    "leasingPeriodYears": "6",
+    "leasingPeriodMonth": "0",
+    "interestPercent": "4",
+    "residualPercentValue": "10",
+    "residualEuroValue": "280",
+    "expectationPrice": "31.59"
+  },
+  {
+    "price": "1500",
+    "downPaymentPercent": "15",
+    "downPaymentEuro": "225",
+    "leasingPeriodYears": "2",
+    "leasingPeriodMonth": "3",
+    "interestPercent": "5",
+    "residualPercentValue": "10",
+    "residualEuroValue": "150",
+    "expectationPrice": "44.76"
+  }
+]
