@@ -1,4 +1,8 @@
 class LeasingCalculatorPage {
+    /**
+     * Sample-monthly instalment locators
+     */
+
     getBannerLocator() {
         return cy.get('#pirukas');
     }
@@ -7,18 +11,18 @@ class LeasingCalculatorPage {
         return cy.get('#acceptPirukas');
     }
 
-    //I wish to apply for leasing (account_type-0 - private person, account_type-1 - legal person)
-    getWishApplyForLeasingLocator() {
-        return cy.get("#account_type-1");
+    //I wish to apply for leasing (id = 0 - private person, id = 1 - legal person)
+    getWishApplyForLeasingLocator(id) {
+        return cy.get(`#account_type-${id}`);
     }
 
     //Type of leasing (financial lease = #kap_rent) , operation_lease = #kas_rent
     getFinancialLeaseRadiobuttonLocator() {
-        return cy.get("kap_rent")
+        return cy.get("#kap_rent")
     }
 
     getOperationalLeaseRadiobuttonLocator() {
-        return cy.get("kas_rent")
+        return cy.get("#kas_rent")
     }
 
     // Price of the vehicle (input) = #price
@@ -27,7 +31,7 @@ class LeasingCalculatorPage {
     }
 
     getVATcheckBoxLocator() {
-        return cy.get('vat_included');
+        return cy.get('#vat_included');
     }
 
     getDownpaymentPercentInputLocator() {
@@ -62,20 +66,41 @@ class LeasingCalculatorPage {
         return cy.get('#reminder');
     }
 
-    getMonthlyInstalmentAmountLocator () {
+    getMonthlyInstalmentAmountLocator() {
         return cy.get("div#monthly-payment div.payment");
+    }
+
+    getMaxPaymentLimitOfferedLocator() {
+        return cy.get("div#max-payment div.payment")
     }
 
     //Button "Apply Here"
-    getApplyButtonLocator () {
-        return cy.get("div#monthly-payment div.payment");
+    getApplyButtonLocator() {
+        return cy.get("div#monthly-payment a.btn.btn-dark");
     }
 
-    //Toggle SampleMonthlyInsalment / MaximumMonthlyInstalment ([data-cy=submit])
-    // getToggleMonthlyInstalment() {
-    //     return cy.get("a[href^='#max-payment']");
-    // }
+    /**
+     * Maximum-monthly instalment locators
+     */
+    // 0 - WishToApplyAloneRadiobutton, 1 - WishToApplyWithCompliantRadiobutton
+    getWishToApplyForLoanRadiobuttonLocator(id) {
+        return cy.get(`#ownership-${id}`)
+    }
 
+    //
+    getMaterialStatusCheckBoxLocator() {
+        return cy.get("#marital-status-married")
+    }
+
+    //Dependands-select
+    getDependSelectLocator() {
+        return cy.get("#dependent-persons")
+    }
+
+    //NetIncomeInput
+    getNetIncomeInputLocator() {
+        return cy.get("#monthly-income")
+    }
 }
 
 export default LeasingCalculatorPage

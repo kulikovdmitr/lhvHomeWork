@@ -2,16 +2,16 @@ import LeasingCalculatorPagePage from "../../../support/PageObject/leasingCalcul
 const testData = require('../../../fixtures/price_of_vehicle_for_sample.json');
 
 /**
- * As part of these tests, we enter values from price_of_vehicle_for_sample.json and check the correctness of the calculation of the final value by comparing
- * with the expected value.
+ * As part of these tests, we enter values from price_of_vehicle_for_sample.json and check
+ * the correctness of the calculation of the final value by comparing with the expected value.
  */
-describe('Using `require`', function () {
+describe('Calculation tests`', function () {
     testData.forEach((testData) => {
-        it('gets its data from a fixture', function () {
+        it('Calculation test (gets its data from a fixture)', function () {
             const leasingCalculatorPage = new LeasingCalculatorPagePage();
             cy.openCalcPageAndCloseBanner();
 
-            //Act from fixtures
+            //Act
             leasingCalculatorPage.getPriceOfVehicleLocator().clear()
             leasingCalculatorPage.getPriceOfVehicleLocator().type(testData.price)
 

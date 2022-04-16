@@ -1,0 +1,21 @@
+{
+  "defaultWishApplyForLeasingPrivatePersonCondition": "be.checked",
+  "defaultWishApplyForLeasingLegalPersonCondition": "not.be.checked",
+  "defaultTypeOfLeasingFinancialLease": "be.checked",
+  "defaultTypeOfLeasingOperationalLease": "not.be.checked",
+  "defaultPriceOfVehicleValue": "15 000",
+  "defaultDownPaymentPercentValue": "10",
+  "defaultDownPaymentEuroValue": "1500",
+  "defaultLeasingPeriodYearsValue": "6",
+  "defaultLeasingPeriodMonthValue": "0",
+  "defaultInterestPercentValue": "4",
+  "defaultResidualPercentValue": "10",
+  "defaultResidualEuroValue": "1500",
+  "defaultExpectationPriceValue": "192.74",
+  "defaultWishToApplyForLoanAloneCondition": "be.checked",
+  "defaultWishToApplyForLoanWithApplicantCondition": "not.be.checked",
+  "defaultMaterialStatusCondition": "be.checked",
+  "defaultDependantsValue": "1",
+  "defaultNetIncomeValue": "900",
+  "defaultMaximumLimitOfferedValue": "280.32"
+}
