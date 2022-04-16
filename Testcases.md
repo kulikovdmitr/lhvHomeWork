@@ -44,7 +44,7 @@ Browsers (Desktop/Mobile) :
 
 Test for minimum supported versions*
 
-#### Checking application performance during degradations
+### Checking application performance during degradations
 
 The system must be adapted to degradation. If a problem occurs, the system should allow
 continue working with minimal loss of functionality. Conditionally, failure of one of the dependent (or independent) requests
@@ -54,7 +54,7 @@ should not break the application.
 - request spoofing, sending responses with response codes (400x, 500x), for example using Charles Proxy
 - checking the operation of the system with a slow Internet from the client side
 
-#### Test case design (example)
+### Test case design (example)
 
 Testcase : Clearing the field "Net income" and checking the impossibility of creating an order
 
